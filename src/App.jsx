@@ -7,21 +7,20 @@ import Favorites from './Views/Favorites';
 
 import './firebase';
 
-
 const App = () => {
-    const userLoggedIn = localStorage.getItem('user');
+  const userLoggedIn = localStorage.getItem('user');
 
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact>
-            {userLoggedIn ? <Homepage/> : <Login /> }
-          </Route>
-          <Route path="/video:videoId" exact component={VideoPage} />
-          <Route path="/favorites" exact component={Favorites} />
-        </Switch>
-      </BrowserRouter>
-  )
-}
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact>
+          {userLoggedIn ? <Homepage /> : <Login />}
+        </Route>
+        <Route path="/video:videoId" exact component={VideoPage} />
+        <Route path="/favorites" exact component={Favorites} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 export default App;
