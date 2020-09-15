@@ -10,7 +10,7 @@ const Login = () => {
       <button type="button" onClick={handleLogin}>
         Login with Gmail
       </button>
-      <p>{loginError ? loginError : ''}</p>
+      <p>{loginError || ''}</p>
     </form>
   );
 };

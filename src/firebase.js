@@ -14,3 +14,5 @@ const config = {
 firebase.initializeApp(config);
 
 export default firebase;
+
+export const KEY = 'AIzaSyArESrDNOrqcPZvntIP04SPcG8-qZjkRpA';
