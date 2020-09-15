@@ -1,21 +1,22 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Login from './Views/Login';
-import Homepage from './Views/Homepage';
-import VideoPage from './Views/VideoPage';
-import Favorites from './Views/Favorites';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './Views/Login/index';
+import Homepage from './Views/Homepage/index';
+import VideoPage from './Views/VideoPage/index';
+import Favorites from './Views/Favorites/index';
 
 import './firebase';
 
 const App = () => {
-  const user = localStorage.getItem('user');
+  // context para proteger rutas con user
   return (
     <BrowserRouter>
-      <Route path="/" exact>
-        {user ? <Homepage /> : <Login />}
-      </Route>
-      <Route path="/video:videoId">{user ? <VideoPage /> : <Login />}</Route>
-      <Route path="/favorites">{user ? <Favorites /> : <Login />}</Route>
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path="/homepage" component={Homepage} />
+        <Route path="/video:videoId" component={VideoPage} />
+        <Route path="/favorites" component={Favorites} />
+      </Switch>
     </BrowserRouter>
   );
 };
