@@ -11,15 +11,11 @@ const App = () => {
   const user = localStorage.getItem('user');
   return (
     <BrowserRouter>
-        <Route path="/" exact>
-          {user ? <Homepage /> : <Login />}
-        </Route>
-        <Route path="/video:videoId">
-          {user ? <VideoPage /> : <Login />}
-        </Route>
-        <Route path="/favorites">
-          {user ? <Favorites /> : <Login />}
-        </Route>
+      <Route path="/" exact>
+        {user ? <Homepage /> : <Login />}
+      </Route>
+      <Route path="/video:videoId">{user ? <VideoPage /> : <Login />}</Route>
+      <Route path="/favorites">{user ? <Favorites /> : <Login />}</Route>
     </BrowserRouter>
   );
 };
