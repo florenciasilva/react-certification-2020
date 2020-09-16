@@ -1,11 +1,11 @@
 import firebase from 'firebase';
 import { useState } from 'react';
+import { useUserContext } from '../provider/UserProvider';
 
 export const useLogin = () => {
+  const { setUserContext, setErrorContext } = useUserContext();
   const [user, setUser] = useState();
   const [error, setError] = useState();
-
-  // setear contexto, mandar user, err, useState de ambos
 
   const login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -13,10 +13,13 @@ export const useLogin = () => {
       .auth()
       .signInWithPopup(provider)
       .then((res) => {
-        // localStorage.setItem('user', JSON.stringify(res.user));
         setUser(res.user);
+        setUserContext(res.user);
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => {
+        setError(err.message);
+        setErrorContext(err.message);
+      });
   };
 
   return { user, error, login };

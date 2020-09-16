@@ -23,7 +23,6 @@ const Login = () => {
     }
   }, [user]);
 
-  console.log(user);
   return (
     <LoginContainer>
       <TitleContainer>

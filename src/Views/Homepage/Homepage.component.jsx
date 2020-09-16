@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-// import { useSearchAPI } from '../hooks/useSearchAPI';
 import { KEY } from '../../firebase';
+import { useLogout } from '../../hooks/useLogout';
 
 const Homepage = () => {
+  const { logout } = useLogout();
   const [error, setError] = useState('');
   const [videoList, setVideoList] = useState();
-  // const fetchVideos = useSearchAPI('surfing');
 
   const mapVideos = () => {
     if (videoList) {
@@ -31,6 +31,7 @@ const Homepage = () => {
       <button type="button" onClick={getVideos}>
         Homepage
       </button>
+      <button type="button" onClick={logout}>Log out</button>
       {mapVideos(videoList)}
     </>
   );
