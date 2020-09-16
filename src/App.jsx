@@ -4,7 +4,7 @@ import Login from './Views/Login/index';
 import Homepage from './Views/Homepage/index';
 import VideoPage from './Views/VideoPage/index';
 import Favorites from './Views/Favorites/index';
-import UserProvider from './provider/UserProvider';
+import UserProvider from './provider/index';
 import ProtectedRoute from './utils/ProtectedRoute';
 import './firebase';
 

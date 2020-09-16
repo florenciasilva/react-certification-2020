@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import { useState } from 'react';
-import { useUserContext } from '../provider/UserProvider';
+import { useUserContext } from '../provider/index';
 
 export const useLogin = () => {
   const { setUserContext, setErrorContext } = useUserContext();

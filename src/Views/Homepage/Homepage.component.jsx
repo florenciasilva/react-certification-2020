@@ -31,7 +31,9 @@ const Homepage = () => {
       <button type="button" onClick={getVideos}>
         Homepage
       </button>
-      <button type="button" onClick={logout}>Log out</button>
+      <button type="button" onClick={logout}>
+        Log out
+      </button>
       {mapVideos(videoList)}
     </>
   );
