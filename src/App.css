@@ -14,6 +14,11 @@ body {
   animation: Gradient 8s ease infinite;
 }
 
+
+.animation {
+  animation: Gradient 8s ease infinite;
+}
+
 @keyframes Gradient {
   0% {
     background-position: 0% 50%;
