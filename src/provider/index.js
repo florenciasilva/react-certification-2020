@@ -1,1 +1,2 @@
-export { default, useUserContext } from './UserProvider';
+export { default, useUserContext} from './UserProvider';
+export { useVideoContext} from './VideoListProvider';
