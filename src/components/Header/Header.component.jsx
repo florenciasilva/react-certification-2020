@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from '../SearchBar/index';
 import { useLogout } from '../../hooks/useLogout';
-import { Navbar } from './Header.styles'
+import { Navbar, LogoutBtn } from './Header.styles'
 import VideoListProvider from '../../provider/VideoListProvider';
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
         <VideoListProvider>
             <Navbar>
                 <SearchBar />
-                <button type="button" onClick={logout}> Log out</button>
+                <LogoutBtn type="button" onClick={logout}> Log out</LogoutBtn>
             </Navbar>
         </VideoListProvider>
     );
