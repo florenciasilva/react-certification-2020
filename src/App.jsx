@@ -7,7 +7,6 @@ import Favorites from './Views/Favorites/index';
 import UserProvider from './provider/index';
 import VideoListProvider from './provider/VideoListProvider';
 import ProtectedRoute from './utils/ProtectedRoute';
-import Header from './components/Header/index';
 import './firebase';
 
 const App = () => {
@@ -15,12 +14,11 @@ const App = () => {
     <UserProvider>
       <VideoListProvider>
       <BrowserRouter>
-        <Header />
         <Switch>
           <Route path="/" exact component={Login} />
-          <ProtectedRoute path="/homepage" component={Homepage} />
-          <ProtectedRoute path="/video:videoId" component={VideoPage} />
-          <ProtectedRoute path="/favorites" component={Favorites} />
+          <Route path="/homepage" component={Homepage} />
+          <Route path="/video:videoId" component={VideoPage} />
+          <Route path="/favorites" component={Favorites} />
         </Switch>
       </BrowserRouter>
       </VideoListProvider>

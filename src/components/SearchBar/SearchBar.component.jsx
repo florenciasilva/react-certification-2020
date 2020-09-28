@@ -11,7 +11,6 @@ const SearchBar = () => {
   const handleSearch = (event) => {
     setSearchValue(event.target.value);
   }
-
   const handleSubmit = () => {
     const query = searchValue;
     const params = `?part=snippet&maxResults=25&q=${query}&key=${KEY}`;
@@ -21,16 +20,11 @@ const SearchBar = () => {
       .catch((err) => setError(err.message));
   };
 
-  useEffect(() => {
-    searchValue ? setSearchValue(searchValue) : setSearchValue('Simone Giertz');
-    handleSubmit();
-  }, [searchValue])
-
   return (
-    <>
+    <div>
       <input onChange={handleSearch} placeholder='Search' value={searchValue || ''}/>
       <Link to='/homepage' onClick={handleSubmit}> Search </Link>
-    </>
+    </div>
   )
 }
 

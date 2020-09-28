@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Thumbnail from '../../components/Thumbnails';
+import Header from '../../components/Header'
 import { useVideoContext } from '../../provider/';
 import { KEY } from '../../firebase';
 
@@ -8,22 +9,24 @@ const Homepage = () => {
   const { videoList } = useVideoContext();
 
   useEffect(() => {
-    const params = `?part=snippet&maxResults=25&chart=mostPopular?regionCode=US&key=${KEY}`;
-
-    fetch(`https://www.googleapis.com/youtube/v3/search` + params)
-      .then((res) => res.json())
-      .then((res) => res.error ? console.log(res.error, 'ERROR') : setVideos(res.items))
-      .catch((err) => console.log(err.message));
+    if(!videoList)  {
+      const params = `?part=snippet&maxResults=25&chart=mostPopular?regionCode=US&key=${KEY}`;
+      fetch(`https://www.googleapis.com/youtube/v3/search` + params)
+        .then((res) => res.json())
+        .then((res) => res.error ? console.log(res.error, 'ERROR') : setVideos(res.items))
+        .catch((err) => console.log(err.message));
+    }
   }, [])
 
-  console.log(videos, '<- videos homepage', videoList, '<- video provider')
-
 const videoArray = videoList ? videoList : videos;
-
+console.log(videoArray, '<- videoArray homepage')
   return (
+    <>
+      <Header />
       <ul>
         <Thumbnail videos={videoArray} />
       </ul>
+    </>
   );
 };
 
