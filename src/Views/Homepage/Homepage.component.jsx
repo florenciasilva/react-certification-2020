@@ -16,10 +16,9 @@ const Homepage = () => {
         .then((res) => res.error ? console.log(res.error, 'ERROR') : setVideos(res.items))
         .catch((err) => console.log(err.message));
     }
-  }, [])
+  }, [videoList])
 
 const videoArray = videoList ? videoList : videos;
-console.log(videoArray, '<- videoArray homepage')
   return (
     <>
       <Header />
