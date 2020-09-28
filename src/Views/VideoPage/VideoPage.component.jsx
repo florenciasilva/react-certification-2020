@@ -1,6 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 import Header from '../../components/Header/index';
+import RecommendedVideos from '../../components/RecommendedVideos';
 
 const VideoPage = () => {
 
@@ -30,6 +31,7 @@ const VideoPage = () => {
       videoId={videoId}
     />
       <button type="submit" onClick={() => handleFavorites(videoId)}>Fav</button>
+      <RecommendedVideos videoId={videoId} />
     </>
     )
   }
