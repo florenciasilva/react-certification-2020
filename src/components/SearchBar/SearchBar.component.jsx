@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useVideoContext } from '../../provider/';
-import { KEY } from '../../firebase';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useVideoContext } from '../../provider';
+import { KEY } from '../../firebase';
 
 const SearchBar = () => {
-
-  const [ searchValue, setSearchValue ] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   const { setVideoList, setError } = useVideoContext();
 
   const handleSearch = (event) => {
     setSearchValue(event.target.value);
-  }
+  };
   const handleSubmit = () => {
     const query = searchValue;
     const params = `?part=snippet&maxResults=25&q=${query}&key=${KEY}`;
@@ -22,10 +21,13 @@ const SearchBar = () => {
 
   return (
     <div>
-      <input onChange={handleSearch} placeholder='Search' value={searchValue || ''}/>
-      <Link to='/homepage' onClick={handleSubmit}> Search </Link>
+      <input onChange={handleSearch} placeholder="Search" value={searchValue || ''} />
+      <Link to="/homepage" onClick={handleSubmit}>
+        {' '}
+        Search{' '}
+      </Link>
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;
