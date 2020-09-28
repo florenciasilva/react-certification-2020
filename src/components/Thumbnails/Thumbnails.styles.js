@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Card = styled.li`
-    width: 300px;
+    width: 320px;
     height: 240px;
     list-style: none;
     display: flex;
@@ -9,9 +9,6 @@ export const Card = styled.li`
     flex-direction: column;
     box-sizing: border-box;
     margin: 14px;
-    background: linear-gradient(269deg, #8d93ea, #b68aea, #7ad4e3, #f0e379);
-    background-size: 900% 900%;
-    animation: Gradient 8s ease infinite;
     cursor: pointer;
 `
 
@@ -20,8 +17,9 @@ export const Title = styled.p`
     margin: 0;
     padding: 5px;
     font-size: 15px;
-    background-color: white;
     height: 20px;
+    text-decoration: none;
+    color: black;
 `
 
 export const Container = styled.div`
