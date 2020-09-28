@@ -15,9 +15,7 @@ const VideoListProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   return (
-    <VideoListContext.Provider
-      value={{ videoList, error, setVideoList, setError }}
-    >
+    <VideoListContext.Provider value={{ videoList, error, setVideoList, setError }}>
       {children}
     </VideoListContext.Provider>
   );
