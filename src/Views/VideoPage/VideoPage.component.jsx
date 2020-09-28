@@ -9,7 +9,6 @@ const VideoPage = () => {
     if(favorites.length === 0) {
       localStorage.setItem('favorites', JSON.stringify([videoId]));
     } else {
-      
       const addFavorite = JSON.parse(favorites);
       if(!addFavorite.includes(videoId)) {
       addFavorite.push(videoId)
