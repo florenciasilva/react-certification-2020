@@ -17,11 +17,10 @@ const Login = () => {
   const { push } = useHistory();
 
   useEffect(() => {
-    console.log(user, '<- user useEffect');
     if (user) {
       push('/homepage');
     }
-  }, [user]);
+  }, [user, push]);
 
   return (
     <LoginContainer>
