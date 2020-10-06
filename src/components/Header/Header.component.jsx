@@ -11,10 +11,7 @@ const Header = () => {
     <Navbar>
       <UserProfile />
       <SearchBar />
-      <LogoutBtn type="button" onClick={logout}>
-        {' '}
-        Log out
-      </LogoutBtn>
+      <LogoutBtn type="button" onClick={logout} value="Log out"/>
     </Navbar>
   );
 };

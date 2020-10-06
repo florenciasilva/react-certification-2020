@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useVideoContext } from '../../provider';
 import { KEY } from '../../firebase';
+import { SearchSVG, SearchInput } from './SearchBar.styles';
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -10,6 +11,7 @@ const SearchBar = () => {
   const handleSearch = (event) => {
     setSearchValue(event.target.value);
   };
+
   const handleSubmit = () => {
     const query = searchValue;
     const params = `?part=snippet&maxResults=25&q=${query}&key=${KEY}`;
@@ -21,10 +23,9 @@ const SearchBar = () => {
 
   return (
     <div>
-      <input onChange={handleSearch} placeholder="Search" value={searchValue || ''} />
-      <Link to="/homepage" onClick={handleSubmit}>
-        {' '}
-        Search{' '}
+      <SearchInput onChange={handleSearch} placeholder="Search" value={searchValue || ''} />
+      <Link to="/homepage" data-testId="anchor-search" onClick={handleSubmit}>
+        <SearchSVG aria-label="Search videos"/>
       </Link>
     </div>
   );

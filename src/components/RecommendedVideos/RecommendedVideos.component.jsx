@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { KEY } from '../../firebase';
+import { RecommendedContainer } from './RecommendedVideos.styles';
 
 const RecommendedVideos = ({ videoId }) => {
   const [recommendedList, setRecommendedList] = useState();
@@ -28,7 +29,8 @@ const RecommendedVideos = ({ videoId }) => {
     }
     return <p>loading</p>;
   };
-  return <div>{mapRecommendedList()}</div>;
+  return <RecommendedContainer>{mapRecommendedList()}</RecommendedContainer>;
+  
 };
 
 export default RecommendedVideos;

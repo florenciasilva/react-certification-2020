@@ -4,7 +4,8 @@ import { useUserContext } from '../provider/index';
 
 const ProtectedRoute = ({ path, component }) => {
   const { userContext } = useUserContext();
-  return userContext ? <Route path={path} component={component} /> : <Redirect to="/" />;
+  const localStorageUser = localStorage.getItem('user');
+  return userContext || localStorageUser ? <Route path={path} component={component} /> : <Redirect to="/" />;
 };
 
 export default ProtectedRoute;

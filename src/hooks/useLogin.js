@@ -15,6 +15,7 @@ export const useLogin = () => {
       .then((res) => {
         setUser(res.user);
         setUserContext(res.user);
+        localStorage.setItem('user', res.user);
       })
       .catch((err) => {
         setError(err.message);

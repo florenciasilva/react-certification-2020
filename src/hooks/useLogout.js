@@ -8,7 +8,10 @@ export const useLogout = () => {
     firebase
       .auth()
       .signOut()
-      .then(() => setUserContext(null))
+      .then(() => {
+        setUserContext(null);
+        localStorage.removeItem('user');
+      })
       .catch((err) => setErrorContext(err.message));
   };
 

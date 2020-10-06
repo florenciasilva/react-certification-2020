@@ -5,11 +5,10 @@ import { useLogin } from '../../hooks/useLogin';
 import {
   LoginContainer,
   TitleContainer,
-  LoginForm,
-  LoginBtn,
+  PrimaryBtn,
   GoogleLogo,
   Peeps,
-} from '../../styles/styles';
+} from './Login.styles';
 import logo from '../../assets/google-icon.png';
 
 const Login = () => {
@@ -17,7 +16,7 @@ const Login = () => {
   const { push } = useHistory();
 
   useEffect(() => {
-    if (user) {
+    if(user) {
       push('/homepage');
     }
   }, [user, push]);
@@ -29,14 +28,14 @@ const Login = () => {
         <div className="subline" />
         <Peeps />
       </TitleContainer>
-      <LoginForm>
-        <LoginBtn type="button" onClick={login}>
+      <form>
+        <PrimaryBtn type="button" onClick={login}>
           Login with
           <GoogleLogo src={logo} />
-        </LoginBtn>
+        </PrimaryBtn>
         <div className="subline" />
         <p>{error || ''}</p>
-      </LoginForm>
+      </form>
     </LoginContainer>
   );
 };

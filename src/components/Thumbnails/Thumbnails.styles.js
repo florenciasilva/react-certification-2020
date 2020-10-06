@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Card = styled.li`
   width: 320px;
@@ -26,4 +27,8 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+`;
+
+export const VideoLink = styled(Link)`
+  text-decoration: none;
 `;
