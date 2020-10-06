@@ -16,7 +16,7 @@ const Login = () => {
   const { push } = useHistory();
 
   useEffect(() => {
-    if(user) {
+    if (user) {
       push('/homepage');
     }
   }, [user, push]);

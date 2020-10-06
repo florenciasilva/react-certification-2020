@@ -6,24 +6,21 @@ import { VideoContainer } from './VideoPage.styles';
 import { PrimaryBtn } from '../Login/Login.styles';
 
 const VideoPage = () => {
-
-  const [ favoriteIcon, setFavoriteIcon ] = useState('+Fav')
+  const [favoriteIcon, setFavoriteIcon] = useState('+Fav');
 
   const handleFavorites = (videoId) => {
     const favorites = localStorage.getItem('favorites');
     const addFavorite = JSON.parse(favorites);
     if (favorites.length === 0) {
       localStorage.setItem('favorites', JSON.stringify([videoId]));
-      setFavoriteIcon('-Fav')
-    } else if(addFavorite.includes(videoId)) {
+      setFavoriteIcon('-Fav');
+    } else if (addFavorite.includes(videoId)) {
       localStorage.removeItem('favorites', videoId);
-      setFavoriteIcon('+Fav')
-    } else {
-      if (!addFavorite.includes(videoId)) {
-        addFavorite.push(videoId);
-        localStorage.setItem('favorites', JSON.stringify(addFavorite));
-        setFavoriteIcon('-Fav')
-      }
+      setFavoriteIcon('+Fav');
+    } else if (!addFavorite.includes(videoId)) {
+      addFavorite.push(videoId);
+      localStorage.setItem('favorites', JSON.stringify(addFavorite));
+      setFavoriteIcon('-Fav');
     }
   };
 

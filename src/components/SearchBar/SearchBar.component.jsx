@@ -23,9 +23,13 @@ const SearchBar = () => {
 
   return (
     <div>
-      <SearchInput onChange={handleSearch} placeholder="Search" value={searchValue || ''} />
+      <SearchInput
+        onChange={handleSearch}
+        placeholder="Search"
+        value={searchValue || ''}
+      />
       <Link to="/homepage" data-testId="anchor-search" onClick={handleSubmit}>
-        <SearchSVG aria-label="Search videos"/>
+        <SearchSVG aria-label="Search videos" />
       </Link>
     </div>
   );

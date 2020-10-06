@@ -30,7 +30,6 @@ const RecommendedVideos = ({ videoId }) => {
     return <p>loading</p>;
   };
   return <RecommendedContainer>{mapRecommendedList()}</RecommendedContainer>;
-  
 };
 
 export default RecommendedVideos;

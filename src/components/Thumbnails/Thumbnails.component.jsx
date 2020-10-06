@@ -4,7 +4,7 @@ import { Card, Container, Title, VideoLink } from './Thumbnails.styles';
 const Thumbnail = ({ videos }) => {
   if (videos) {
     return (
-      <Container >
+      <Container>
         {videos.map((video) => {
           return (
             <Card key={video.id} data-testId="thumbnail-li">
@@ -24,7 +24,11 @@ const Thumbnail = ({ videos }) => {
   return (
     <Container>
       <Card>
-        <img src="https://dummyimage.com/300x200/000/fff" alt="dummy img" data-testId="dummy-img"/>
+        <img
+          src="https://dummyimage.com/300x200/000/fff"
+          alt="dummy img"
+          data-testId="dummy-img"
+        />
         <Title>title here</Title>
       </Card>
     </Container>

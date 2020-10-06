@@ -26,7 +26,7 @@ const Homepage = () => {
       <Header />
       <ul>
         <Thumbnail videos={videoArray} />
-     </ul>
+      </ul>
     </>
   );
 };

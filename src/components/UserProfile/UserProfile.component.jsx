@@ -7,7 +7,7 @@ const UserProfile = () => {
 
   const getFavorites = () => {
     const getFavoritesStorage = localStorage.getItem('favorites');
-    if(getFavoritesStorage) {
+    if (getFavoritesStorage) {
       return JSON.parse(getFavoritesStorage).map((favorite, i) => {
         return <Link to={`/video=?${favorite}`}> fav{i} </Link>;
       });
