@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLogin } from '../../hooks/useLogin';
+import { useUserContext } from '../../provider/UserProvider';
 
 import {
   LoginContainer,
@@ -11,7 +12,8 @@ import {
 import logo from '../../assets/google-icon.png';
 
 const Login = () => {
-  const { error, login } = useLogin();
+  const { login } = useLogin();
+  const { error } = useUserContext();
 
   return (
     <LoginContainer>
