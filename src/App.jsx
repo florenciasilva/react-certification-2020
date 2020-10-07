@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Views/Login/index';
 import Homepage from './Views/Homepage/index';
 import VideoPage from './Views/VideoPage/index';
@@ -17,13 +17,13 @@ const App = () => {
   return (
     <UserProvider>
       <VideoListProvider>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             <Route path="/" exact component={Login} />
             <ProtectedRoute path="/homepage" component={Homepage} />
             <ProtectedRoute path="/video:videoId" component={VideoPage} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
       </VideoListProvider>
     </UserProvider>
   );
