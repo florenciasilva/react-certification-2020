@@ -10,7 +10,6 @@ export const useLogout = () => {
       .signOut()
       .then(() => {
         setUserContext(null);
-        localStorage.removeItem('user');
       })
       .catch((err) => setErrorContext(err.message));
   };

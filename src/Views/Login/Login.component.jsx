@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import { useLogin } from '../../hooks/useLogin';
 
 import {
@@ -12,14 +11,7 @@ import {
 import logo from '../../assets/google-icon.png';
 
 const Login = () => {
-  const { user, error, login } = useLogin();
-  const { push } = useHistory();
-
-  useEffect(() => {
-    if (user) {
-      push('/homepage');
-    }
-  }, [user, push]);
+  const { error, login } = useLogin();
 
   return (
     <LoginContainer>

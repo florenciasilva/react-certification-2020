@@ -26,7 +26,7 @@ const VideoPage = () => {
 
   const showVideo = () => {
     const videoId = window.location.search.replace('?', '');
-    console.log(videoId)
+    console.log(videoId);
     const options = {
       height: '700',
       width: '100%',

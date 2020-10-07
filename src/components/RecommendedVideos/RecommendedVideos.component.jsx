@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { KEY } from '../../firebase';
-import { RecommendedContainer, RecommendedVideo, VideoLink } from './RecommendedVideos.styles';
+import {
+  RecommendedContainer,
+  RecommendedVideo,
+  VideoLink,
+} from './RecommendedVideos.styles';
 
 const RecommendedVideos = ({ videoId }) => {
   const [recommendedList, setRecommendedList] = useState();
@@ -16,7 +20,6 @@ const RecommendedVideos = ({ videoId }) => {
   }, [videoId]);
 
   const mapRecommendedList = () => {
-    console.log(recommendedList)
     if (recommendedList) {
       return recommendedList.map((video) => {
         return (
@@ -28,9 +31,8 @@ const RecommendedVideos = ({ videoId }) => {
           </RecommendedVideo>
         );
       });
-    } else {
-    return <p>loading</p>;
     }
+    return <p>loading</p>;
   };
   return <RecommendedContainer>{mapRecommendedList()}</RecommendedContainer>;
 };
