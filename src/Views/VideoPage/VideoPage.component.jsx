@@ -1,32 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import YouTube from 'react-youtube';
 import Header from '../../components/Header/index';
 import RecommendedVideos from '../../components/RecommendedVideos';
 import { VideoContainer } from './VideoPage.styles';
 import { PrimaryBtn } from '../Login/Login.styles';
+import useFavorites from '../../hooks/useFavorites';
 
 const VideoPage = () => {
-  const [favoriteIcon, setFavoriteIcon] = useState('+Fav');
+  
+  const { handleFavorites, favoriteIcon, setFavoriteIcon } = useFavorites();
+  const videoId = window.location.search.replace('?', '');
 
-  const handleFavorites = (videoId) => {
-    const favorites = localStorage.getItem('favorites');
-    const addFavorite = JSON.parse(favorites);
-    if (favorites.length === 0) {
-      localStorage.setItem('favorites', JSON.stringify([videoId]));
-      setFavoriteIcon('-Fav');
-    } else if (addFavorite.includes(videoId)) {
-      localStorage.removeItem('favorites', videoId);
-      setFavoriteIcon('+Fav');
-    } else if (!addFavorite.includes(videoId)) {
-      addFavorite.push(videoId);
-      localStorage.setItem('favorites', JSON.stringify(addFavorite));
-      setFavoriteIcon('-Fav');
-    }
-  };
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const determineFavorite = favorites.includes(videoId);
+    // eslint-disable-next-line
+    const determineStartingIcon = determineFavorite ? setFavoriteIcon('-') : setFavoriteIcon('+')
+  }, [videoId, setFavoriteIcon])
 
   const showVideo = () => {
-    const videoId = window.location.search.replace('?', '');
-    console.log(videoId);
     const options = {
       height: '700',
       width: '100%',

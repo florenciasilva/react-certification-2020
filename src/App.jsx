@@ -9,7 +9,6 @@ import ProtectedRoute from './utils/ProtectedRoute';
 import './firebase';
 
 const App = () => {
-
   return (
     <UserProvider>
       <VideoListProvider>

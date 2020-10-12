@@ -9,14 +9,16 @@ import {
 const RecommendedVideos = ({ videoId }) => {
   const [recommendedList, setRecommendedList] = useState();
 
+
   useEffect(() => {
     const params = `?part=snippet&maxResults=10&relatedToVideoId=${videoId}&type=video&key=${KEY}`;
     fetch(`https://www.googleapis.com/youtube/v3/search${params}`)
       .then((res) => res.json())
-      .then((res) =>
+      .then((res) => 
         res.error ? console.log(res.error.message) : setRecommendedList(res.items)
       )
       .catch((err) => console.log(err.message));
+
   }, [videoId]);
 
   const mapRecommendedList = () => {

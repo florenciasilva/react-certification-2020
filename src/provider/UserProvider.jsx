@@ -16,9 +16,7 @@ const UserProvider = ({ children }) => {
   const [error, setError] = useState();
 
   return (
-    <LoginContext.Provider
-      value={{ user, error, setUser, setError }}
-    >
+    <LoginContext.Provider value={{ user, error, setUser, setError }}>
       {children}
     </LoginContext.Provider>
   );
