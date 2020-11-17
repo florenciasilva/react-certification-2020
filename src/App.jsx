@@ -9,11 +9,6 @@ import ProtectedRoute from './utils/ProtectedRoute';
 import './firebase';
 
 const App = () => {
-  const getFavorites = localStorage.getItem('favorites');
-  if (!getFavorites) {
-    localStorage.setItem('favorites', []);
-  }
-
   return (
     <UserProvider>
       <VideoListProvider>

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import firebase from 'firebase';
 
 const LoginContext = createContext(null);
 
@@ -11,13 +12,11 @@ const useUserContext = () => {
 };
 
 const UserProvider = ({ children }) => {
-  const [userContext, setUserContext] = useState(null);
-  const [errorContext, setErrorContext] = useState(null);
+  const [user, setUser] = useState(firebase.auth().currentUser);
+  const [error, setError] = useState();
 
   return (
-    <LoginContext.Provider
-      value={{ userContext, errorContext, setUserContext, setErrorContext }}
-    >
+    <LoginContext.Provider value={{ user, error, setUser, setError }}>
       {children}
     </LoginContext.Provider>
   );

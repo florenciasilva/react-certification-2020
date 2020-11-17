@@ -2,17 +2,16 @@ import firebase from 'firebase';
 import { useUserContext } from '../provider/index';
 
 export const useLogout = () => {
-  const { setUserContext, setErrorContext } = useUserContext();
+  const { setUser, setError } = useUserContext();
 
   const logout = () => {
     firebase
       .auth()
       .signOut()
       .then(() => {
-        setUserContext(null);
-        localStorage.removeItem('user');
+        setUser(null);
       })
-      .catch((err) => setErrorContext(err.message));
+      .catch((err) => setError(err.message));
   };
 
   return { logout };
